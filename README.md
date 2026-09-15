@@ -1,6 +1,6 @@
 # Easy DevOps 🚀
 
-> ***Easy DevOps 🚀*** One CLI + Web Dashboard to automate a DevOps engineer's daily work
+> **Easy DevOps 🚀** One CLI + Web Dashboard to automate a DevOps engineer's daily work
 
 **Brought to you by [EasySofts](https://easysofts.net)**
 

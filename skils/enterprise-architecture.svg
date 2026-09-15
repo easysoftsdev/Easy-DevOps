@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bgGrad)"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="url(#headerGrad)"/>
+  <text x="600" y="38" text-anchor="middle" fill="white" font-size="22" font-weight="bold">Easy DevOps - Enterprise High Availability Architecture</text>
+
+  <!-- Internet / CDN -->
+  <rect x="450" y="80" width="300" height="40" rx="8" fill="#1e40af" filter="url(#shadow)"/>
+  <text x="600" y="105" text-anchor="middle" fill="white" font-size="13" font-weight="bold">INTERNET / CDN (Cloudflare)</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="120" x2="600" y2="145" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker></defs>
+
+  <!-- Edge Load Balancer -->
+  <rect x="420" y="145" width="360" height="45" rx="8" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+  <text x="600" y="165" text-anchor="middle" fill="white" font-size="12" font-weight="bold">EDGE LOAD BALANCER (HAProxy / Keepalived)</text>
+  <text x="600" y="180" text-anchor="middle" fill="#fef3c7" font-size="10">Active-Active | SSL Termination | DDoS Protection | Rate Limiting</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="190" x2="600" y2="215" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- DMZ -->
+  <rect x="380" y="215" width="440" height="30" rx="5" fill="#374151" stroke="#6b7280" stroke-width="1"/>
+  <text x="600" y="235" text-anchor="middle" fill="#9ca3af" font-size="11">DMZ Network (Public Facing)</text>
+
+  <!-- Arrow down -->
+  <line x1="600" y1="245" x2="600" y2="270" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Internal Load Balancer -->
+  <rect x="420" y="270" width="360" height="40" rx="8" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="600" y="290" text-anchor="middle" fill="white" font-size="12" font-weight="bold">INTERNAL LOAD BALANCER (Nginx)</text>
+  <text x="600" y="303" text-anchor="middle" fill="#bfdbfe" font-size="10">L7 Balancing | Health Checks | Sticky Sessions | WebSocket</text>
+
+  <!-- Arrow down to API cluster -->
+  <line x1="600" y1="310" x2="600" y2="335" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- API Cluster Box -->
+  <rect x="150" y="335" width="900" height="90" rx="10" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="200" y="355" fill="#22c55e" font-size="12" font-weight="bold">GO API CLUSTER (Stateless - Horizontal Scaling)</text>
+
+  <!-- API Node 1 -->
+  <rect x="180" y="365" width="200" height="50" rx="6" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="280" y="385" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Go API #1 (Primary)</text>
+  <text x="280" y="400" text-anchor="middle" fill="#dcfce7" font-size="9">Fiber v2 | Leader Election</text>
+
+  <!-- API Node 2 -->
+  <rect x="420" y="365" width="200" height="50" rx="6" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="520" y="385" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Go API #2 (Replica)</text>
+  <text x="520" y="400" text-anchor="middle" fill="#dcfce7" font-size="9">Fiber v2 | Stateless</text>
+
+  <!-- API Node 3 -->
+  <rect x="660" y="365" width="200" height="50" rx="6" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="760" y="385" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Go API #3 (Replica)</text>
+  <text x="760" y="400" text-anchor="middle" fill="#dcfce7" font-size="9">Fiber v2 | Stateless</text>
+
+  <!-- API Node 4 -->
+  <rect x="900" y="365" width="130" height="50" rx="6" fill="#166534" filter="url(#shadow)"/>
+  <text x="965" y="385" text-anchor="middle" fill="white" font-size="10" font-weight="bold">+ N More</text>
+  <text x="965" y="400" text-anchor="middle" fill="#bbf7d0" font-size="9">Auto-scale</text>
+
+  <!-- Arrows down to data layer -->
+  <line x1="300" y1="425" x2="300" y2="470" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="520" y1="425" x2="520" y2="470" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="740" y1="425" x2="740" y2="470" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Data Layer Box -->
+  <rect x="100" y="470" width="1000" height="120" rx="10" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="150" y="490" fill="#8b5cf6" font-size="12" font-weight="bold">DATA LAYER (HA Cluster)</text>
+
+  <!-- PostgreSQL HA -->
+  <rect x="130" y="500" width="220" height="80" rx="8" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="240" y="525" text-anchor="middle" fill="white" font-size="12" font-weight="bold">PostgreSQL 16 HA</text>
+  <text x="240" y="540" text-anchor="middle" fill="#e9d5ff" font-size="9">Primary + Replica (Patroni)</text>
+  <text x="240" y="555" text-anchor="middle" fill="#e9d5ff" font-size="9">Auto-failover | PgBouncer</text>
+  <text x="240" y="570" text-anchor="middle" fill="#e9d5ff" font-size="9">Point-in-time Recovery</text>
+
+  <!-- Redis Sentinel -->
+  <rect x="390" y="500" width="220" height="80" rx="8" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="500" y="525" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Redis 7 Sentinel</text>
+  <text x="500" y="540" text-anchor="middle" fill="#fecaca" font-size="9">3 Sentinel Nodes</text>
+  <text x="500" y="555" text-anchor="middle" fill="#fecaca" font-size="9">Auto-failover | Replication</text>
+  <text x="500" y="570" text-anchor="middle" fill="#fecaca" font-size="9">Cache + Session Store</text>
+
+  <!-- MinIO Cluster -->
+  <rect x="650" y="500" width="220" height="80" rx="8" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="760" y="525" text-anchor="middle" fill="white" font-size="12" font-weight="bold">MinIO Object Storage</text>
+  <text x="760" y="540" text-anchor="middle" fill="#bfdbfe" font-size="9">Erasure Coding | S3 API</text>
+  <text x="760" y="555" text-anchor="middle" fill="#bfdbfe" font-size="9">Multi-site Replication</text>
+  <text x="760" y="570" text-anchor="middle" fill="#bfdbfe" font-size="9">Encryption at Rest</text>
+
+  <!-- NATS -->
+  <rect x="910" y="500" width="170" height="80" rx="8" fill="#0891b2" filter="url(#shadow)"/>
+  <text x="995" y="525" text-anchor="middle" fill="white" font-size="11" font-weight="bold">NATS Cluster</text>
+  <text x="995" y="540" text-anchor="middle" fill="#cffafe" font-size="9">Message Queue</text>
+  <text x="995" y="555" text-anchor="middle" fill="#cffafe" font-size="9">Event Bus</text>
+  <text x="995" y="570" text-anchor="middle" fill="#cffafe" font-size="9">Multiple Brokers</text>
+
+  <!-- Monitoring Box -->
+  <rect x="100" y="610" width="520" height="110" rx="10" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="150" y="630" fill="#f97316" font-size="12" font-weight="bold">OBSERVABILITY STACK</text>
+
+  <!-- Prometheus -->
+  <rect x="130" y="640" width="150" height="70" rx="6" fill="#e65100" filter="url(#shadow)"/>
+  <text x="205" y="665" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Prometheus</text>
+  <text x="205" y="680" text-anchor="middle" fill="#fed7aa" font-size="9">Metrics Collection</text>
+  <text x="205" y="695" text-anchor="middle" fill="#fed7aa" font-size="9">Federation</text>
+
+  <!-- Grafana -->
+  <rect x="300" y="640" width="150" height="70" rx="6" fill="#e65100" filter="url(#shadow)"/>
+  <text x="375" y="665" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Grafana</text>
+  <text x="375" y="680" text-anchor="middle" fill="#fed7aa" font-size="9">Dashboards</text>
+  <text x="375" y="695" text-anchor="middle" fill="#fed7aa" font-size="9">Visualization</text>
+
+  <!-- ELK -->
+  <rect x="470" y="640" width="140" height="70" rx="6" fill="#e65100" filter="url(#shadow)"/>
+  <text x="540" y="665" text-anchor="middle" fill="white" font-size="11" font-weight="bold">ELK Stack</text>
+  <text x="540" y="680" text-anchor="middle" fill="#fed7aa" font-size="9">Log Aggregation</text>
+  <text x="540" y="695" text-anchor="middle" fill="#fed7aa" font-size="9">Hot-Warm-Cold</text>
+
+  <!-- Security & DR Box -->
+  <rect x="640" y="610" width="460" height="110" rx="10" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="690" y="630" fill="#ef4444" font-size="12" font-weight="bold">SECURITY & DISASTER RECOVERY</text>
+
+  <!-- Vault -->
+  <rect x="660" y="640" width="130" height="70" rx="6" fill="#991b1b" filter="url(#shadow)"/>
+  <text x="725" y="665" text-anchor="middle" fill="white" font-size="10" font-weight="bold">HashiCorp Vault</text>
+  <text x="725" y="680" text-anchor="middle" fill="#fecaca" font-size="9">Secret Mgmt</text>
+  <text x="725" y="695" text-anchor="middle" fill="#fecaca" font-size="9">Key Rotation</text>
+
+  <!-- Backup -->
+  <rect x="810" y="640" width="130" height="70" rx="6" fill="#991b1b" filter="url(#shadow)"/>
+  <text x="875" y="665" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Backup Engine</text>
+  <text x="875" y="680" text-anchor="middle" fill="#fecaca" font-size="9">Incremental | GFS</text>
+  <text x="875" y="695" text-anchor="middle" fill="#fecaca" font-size="9">Multi-cloud Storage</text>
+
+  <!-- DR -->
+  <rect x="960" y="640" width="130" height="70" rx="6" fill="#991b1b" filter="url(#shadow)"/>
+  <text x="1025" y="665" text-anchor="middle" fill="white" font-size="10" font-weight="bold">DR Automation</text>
+  <text x="1025" y="680" text-anchor="middle" fill="#fecaca" font-size="9">RPO: 5min | RTO: 15min</text>
+  <text x="1025" y="695" text-anchor="middle" fill="#fecaca" font-size="9">Failover | Runbooks</text>
+
+  <!-- Management Network -->
+  <rect x="100" y="740" width="1000" height="60" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="600" y="765" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="bold">MANAGEMENT NETWORK (Admin Access Only)</text>
+  <text x="600" y="785" text-anchor="middle" fill="#64748b" font-size="10">VPN | SSH Bastion | Audit Logging | MFA | RBAC | Compliance (SOC2/HIPAA/GDPR)</text>
+
+  <!-- Legend -->
+  <rect x="100" y="820" width="1000" height="60" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="150" y="840" fill="#94a3b8" font-size="11" font-weight="bold">LEGEND:</text>
+
+  <rect x="250" y="830" width="12" height="12" rx="2" fill="#22c55e"/>
+  <text x="268" y="841" fill="#94a3b8" font-size="10">API Layer</text>
+
+  <rect x="350" y="830" width="12" height="12" rx="2" fill="#8b5cf6"/>
+  <text x="368" y="841" fill="#94a3b8" font-size="10">Database</text>
+
+  <rect x="440" y="830" width="12" height="12" rx="2" fill="#ef4444"/>
+  <text x="458" y="841" fill="#94a3b8" font-size="10">Cache/Queue</text>
+
+  <rect x="550" y="830" width="12" height="12" rx="2" fill="#f97316"/>
+  <text x="568" y="841" fill="#94a3b8" font-size="10">Monitoring</text>
+
+  <rect x="660" y="830" width="12" height="12" rx="2" fill="#3b82f6"/>
+  <text x="678" y="841" fill="#94a3b8" font-size="10">Storage/Messaging</text>
+
+  <rect x="800" y="830" width="12" height="12" rx="2" fill="#991b1b"/>
+  <text x="818" y="841" fill="#94a3b8" font-size="10">Security/DR</text>
+
+  <text x="150" y="865" fill="#64748b" font-size="9">99.99% Uptime | Zero-Trust Security | Multi-Region Ready | Auto-scaling | Self-Healing | AI-Powered Operations</text>
+
+</svg>
